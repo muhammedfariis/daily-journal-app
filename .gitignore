@@ -1,0 +1,15 @@
+# this is for ignore nodemodules
+node_modules/
+
+# this is for ignore folders of react express etc 
+
+build/
+
+# this is using for globally ignore environmental variables (data base password , api keys etc)
+.env
+
+# this is ignore local enivironment variables like port : 3000 debuggings etc
+.env.local 
+
+# this ignore where ever found env and local it will ignore it (*)
+.env.*.local
