@@ -7,9 +7,11 @@ const authMiddleware = require("./middleware/auth");
 
 const app = express();
 const port = 8000;
-
 app.use(cors());
 app.use(express.json());
+
+app.use(express.static("public"))
+
 
 // MongoDB connection
 mongoose.connect("mongodb://127.0.0.1:27017/dailyjournal", {

@@ -32,7 +32,7 @@ document.querySelector(".forms").addEventListener("submit", async (e) => {
     if (data.token) {
       // Save token for future API requests
       localStorage.setItem("token", data.token);
-      window.location.href = "index.html"; // redirect after login
+      window.location.href = "home.html"; // redirect after login
     }
   } catch (err) {
     alert("Login failed: " + err.message);

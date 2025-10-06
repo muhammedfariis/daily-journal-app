@@ -1,42 +1,28 @@
-// /public/script.js
-
-document.getElementById("journalForm").addEventListener("submit", async (e) => {
+document.querySelector(".forms").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const title = document.getElementById("title").value.trim();
-  const content = document.getElementById("content").value.trim();
-  const token = localStorage.getItem("token"); // get token from login
-
-  if (!token) {
-    alert("Please log in first!");
-    window.location.href = "login.html"; // redirect if not logged in
-    return;
-  }
+  const name = document.getElementById("name").value;
+  const number = document.getElementById("number").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
   try {
-    const res = await fetch("http://localhost:8000/api/entries", {
+    const res = await fetch("http://localhost:8000/api/auth/signup", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + token   // ✅ crucial for backend auth
-      },
-      body: JSON.stringify({ title, content })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, number, email, password }),
     });
 
     const data = await res.json();
+    alert(data.message || data.error);
 
-    if (!res.ok) {
-      alert(data.error || "Entry submission failed");
-      return;
+    if (res.ok) {
+      window.location.href = "login.html";
     }
-
-    alert("Entry added successfully!");
-    document.getElementById("journalForm").reset();
-
-    // Redirect to history page after submit
-    window.location.href = "journals.html";
   } catch (err) {
-    console.error("Error adding entry:", err);
-    alert("Entry submission failed: " + err.message);
+    alert("Signup failed: " + err.message);
   }
 });
+
+
+
