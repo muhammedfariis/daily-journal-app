@@ -1,0 +1,91 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: auto;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    
+}
+body{
+    margin: 0px;
+}
+.entry {
+  background-color: rgba(240, 248, 255, 0.848);
+  border: 1px solid transparent;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+
+}
+
+
+.entry h3 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.entry small {
+  color: rgb(82, 82, 82);
+}
+
+
+.delete-btn {
+  color: rgb(26, 3, 3);
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  cursor: pointer;
+  height: 30px;
+  width: 70px;
+  position: relative;
+  background:linear-gradient(100deg , rgba(214, 241, 188, 0.608) ,rgba(136, 239, 132, 0.74), rgb(109, 233, 9));
+  background-size: 600% 600%;
+  animation: gradientShift 5s ease infinite;
+
+}
+
+.delete-btn:hover{
+  transform: scale(0.9);
+
+}
+.delete-btn:active{
+  filter: brightness(0.6) ,contrast(0.7);
+  background : rgb(220, 7, 7);
+  transform: scale(0.9);
+
+}
+
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+
+}
+
+video {
+  position: fixed; /* fixed full screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fill without distortion */
+  z-index: -1; /* behind everything */
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #e5ce05;
+  text-shadow:
+    1px 1px 0px #fe061f,
+    3px 3px 0px #1a0698;
+    /* 3px 3px 0px #dcf80b; */
+    transform: perspective(1000px) rotateX(30deg);
+}
+
