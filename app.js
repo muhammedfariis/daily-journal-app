@@ -23,7 +23,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/dailyjournal", {
 
 // Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/entries", authMiddleware, entryRoutes);  // <-- FIXED
+app.use("/api/entries", authMiddleware, entryRoutes);  
 
 app.listen(port, () => {
   console.log(`🚀 Server running at http://localhost:${port}`);
